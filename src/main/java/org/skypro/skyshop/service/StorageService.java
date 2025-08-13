@@ -20,7 +20,10 @@ public class StorageService {
     public StorageService() {
         products = new HashMap<>();
         articles = new HashMap<>();
+        fillProductsAndArticles();
+    }
 
+    public void fillProductsAndArticles() {
         FixPriceProduct product1 = new FixPriceProduct(UUID.randomUUID(), "Яблоки");
         DiscountedProduct product2 = new DiscountedProduct(UUID.randomUUID(), "Картошка", 60, 15);
         FixPriceProduct product3 = new FixPriceProduct(UUID.randomUUID(), "Молоко");
@@ -39,27 +42,27 @@ public class StorageService {
         products.put(product7.getId(), product7);
         products.put(product8.getId(), product8);
 
-        Article article1 = new Article(UUID.randomUUID(),"Кефира побольше!", "Кефир " + "Колбаса " + "Кефир " + "Батон " + "Кефир ");
-        Article article2 = new Article(UUID.randomUUID(),"Типичный обед студента.", "Кефир " + "Сайка ");
-        Article article3 = new Article(UUID.randomUUID(),"Рецепт окрошки на кефире.", "Кефир " + "Хлеб " + "Колбаса " + "Яйцо ");
+        Article article1 = new Article(UUID.randomUUID(), "Кефира побольше!", "Кефир " + "Колбаса " + "Кефир " + "Батон " + "Кефир ");
+        Article article2 = new Article(UUID.randomUUID(), "Типичный обед студента.", "Кефир " + "Сайка ");
+        Article article3 = new Article(UUID.randomUUID(), "Рецепт окрошки на кефире.", "Кефир " + "Хлеб " + "Колбаса " + "Яйцо ");
 
         articles.put(article1.getId(), article1);
         articles.put(article2.getId(), article2);
         articles.put(article3.getId(), article3);
     }
 
-        public Map<UUID, Product> getProducts () {
-            return this.products;
-        }
-
-        public Map<UUID, Article> getArticles () {
-            return this.articles;
-        }
-
-        public Map<UUID, Searchable> getAllElements () {
-            Map<UUID, Searchable> mapAllElements = new HashMap<>();
-            mapAllElements.putAll(products);
-            mapAllElements.putAll(articles);
-            return mapAllElements;
-        }
+    public Map<UUID, Product> getProducts() {
+        return this.products;
     }
+
+    public Map<UUID, Article> getArticles() {
+        return this.articles;
+    }
+
+    public Map<UUID, Searchable> getAllElements() {
+        Map<UUID, Searchable> mapAllElements = new HashMap<>();
+        mapAllElements.putAll(products);
+        mapAllElements.putAll(articles);
+        return mapAllElements;
+    }
+}
