@@ -18,7 +18,6 @@ public class SearchResult {
         return new SearchResult(searchable.getId(), searchable.getName(), searchable.getSearchTerm());
     }
 
-
     @Override
     public String toString() {
         return "SearchResult{" + "id=" + id + ", name='" + name + '\'' + ", contentType='" + contentType + '\'' + '}';
