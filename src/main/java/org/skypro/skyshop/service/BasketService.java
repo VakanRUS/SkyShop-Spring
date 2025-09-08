@@ -31,7 +31,7 @@ public class BasketService {
     public UserBasket getUserBasket() {
         List<BasketItem> list = productBasket.getBasket().entrySet().stream()
                 .map(element -> {
-                    Product product = storageService.getProductById(element.getKey()).orElseThrow();
+                    Product product = storageService.getProductById(element.getKey()).orElseThrow(NoSuchProductException::new);
                     return new BasketItem(product, element.getValue());
                 })
                 .toList();
